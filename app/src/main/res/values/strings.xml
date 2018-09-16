@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Simple App</string>
+    <string name="user_text_msg">Сообщение пользователя: %d.</string>
+</resources>

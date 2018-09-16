@@ -9,8 +9,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText textMsg;
-    EditText textClone;
+    private EditText textMsg;
+    private EditText textClone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

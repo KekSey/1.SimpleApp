@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Simple App</string>
     <string name="user_text_msg">Сообщение пользователя: %d.</string>
+    <string name="info_welcome">
+        Welcome to the SimpleApp \n
+        This app was created by KekSey \n
+        <b>Contact information</b> \n
+        <b>E-mail:</b> nagaaoffmail@gmail.com</string>
 </resources>

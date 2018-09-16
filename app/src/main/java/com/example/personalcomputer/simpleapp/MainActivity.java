@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,21 +18,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Инициализация EditText'ов
+        //Инициализация EditText'а
         textMsg = findViewById(R.id.text_msg);
-        textClone = findViewById(R.id.text_clone);
 
         Button btnPreview = findViewById(R.id.btn_preview);
         btnPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //textClone.setText(textMsg.getText().toString());
-                openSecondActivity();
+                if (isEmpty(textMsg)) {
+                    //Вызов информационного pop-up в случае отсутствия текста в поле ввода
+                    Toast.makeText(MainActivity.this, "Your message is empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    openSecondActivity();
+                }
             }
         });
     }
 
     public void openSecondActivity() {
         SecondActivity.start(this, textMsg.getText().toString());
+    }
+
+    //Метод проверки элементов EditText на отсутствие текста (возвращает boolean)
+    public static boolean isEmpty(EditText editText) {
+        boolean isEmptyResult = false;
+        if (editText.getText().length() == 0) {
+            isEmptyResult = true;
+        }
+        return isEmptyResult;
     }
 }

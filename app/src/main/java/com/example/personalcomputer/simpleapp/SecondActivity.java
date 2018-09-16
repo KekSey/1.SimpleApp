@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class SecondActivity extends AppCompatActivity {
         //Объявление и инициализация элемента TextView
         textMsgView = findViewById(R.id.text_msg_view);
         textMsgView.setText(getIntent().getStringExtra("KEY_TEXT_MSG"));
+
         //Вывод сообщения с форматными данными ???
         //textMsgView.setText(getString(R.string.user_text_msg, "KEY_TEXT_MSG"));
 
@@ -29,7 +31,9 @@ public class SecondActivity extends AppCompatActivity {
         buttonEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendMail();
+                //Вызов информационного pop-up в случае отсутствия необходимого почтового приложения
+                Toast.makeText(SecondActivity.this, "No Email app found", Toast.LENGTH_SHORT).show();
+                //sendMail();
             }
         });
     }
